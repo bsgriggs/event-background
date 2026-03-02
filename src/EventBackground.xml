@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.eventbackground.EventBackground" pluginWidget="true" needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Event Background</name>
+    <description>Events widget but runs even if the tab isn't focused</description>
+    <icon />
+    <properties>
+        <propertyGroup caption="General">
+            <property key="action" type="action" required="true">
+                <caption>On Load Action</caption>
+                <description></description>
+            </property>
+            <property key="delay" type="integer" required="true" defaultValue="0">
+                <caption>Delay (ms)</caption>
+                <description></description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
