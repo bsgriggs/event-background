@@ -11,8 +11,9 @@ export interface EventBackgroundContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    action?: ActionValue;
     delay: number;
+    debugMode: boolean;
+    action?: ActionValue;
 }
 
 export interface EventBackgroundPreviewProps {
@@ -25,6 +26,7 @@ export interface EventBackgroundPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     renderMode?: "design" | "xray" | "structure";
-    action: {} | null;
     delay: number | null;
+    debugMode: boolean;
+    action: {} | null;
 }

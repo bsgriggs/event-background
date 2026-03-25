@@ -1,19 +1,49 @@
-import { CSSProperties, ReactElement, createElement, useEffect } from "react";
+import { CSSProperties, ReactElement, createElement, useEffect, useMemo } from "react";
 
 interface EventBackgroundCompProps {
     name: string;
-    class: string;
+    className: string;
     style?: CSSProperties;
     action: () => void;
     delay: number;
+    debugMode: boolean;
 }
 
-export function EventBackgroundComp(props: EventBackgroundCompProps): ReactElement {
+export function EventBackgroundComp({
+    name,
+    className,
+    style,
+    action,
+    delay,
+    debugMode
+}: EventBackgroundCompProps): ReactElement {
     useEffect(() => {
-        const timeout = setTimeout(() => props.action(), props.delay);
+        const timeout = setTimeout(() => action(), delay);
+        if (debugMode) {
+            console.info(`Scheduling event "${name}" with delay ${delay / 1000} seconds`);
+        }
 
-        return () => clearTimeout(timeout);
-    }, [props.action, props.delay]);
+        return () => {
+            if (debugMode) {
+                console.info(`Destroying event "${name}"`);
+            }
 
-    return <div id={props.name} className={`widget-event-background ${props.class}`} style={props.style}></div>;
+            clearTimeout(timeout);
+        };
+    }, [action, delay, debugMode, name]);
+
+    const resultStyle: CSSProperties | undefined = useMemo(
+        () => (debugMode ? ({ ...style, backgroundColor: "red", padding: "4px" } as CSSProperties) : style),
+        [style, debugMode]
+    );
+
+    return (
+        <div id={name} className={`widget-event-background ${className}`} style={resultStyle}>
+            {debugMode && (
+                <span className="mx-text">{`[DEBUG MODE] Event Background widget "${name}" with a delay of ${
+                    delay / 1000
+                } seconds`}</span>
+            )}
+        </div>
+    );
 }

@@ -9,9 +9,16 @@ export function EventBackground(props: EventBackgroundContainerProps): ReactElem
     return (
         <EventBackgroundComp
             {...props}
+            delay={props.delay && props.delay >= 0 ? props.delay : 0}
+            className={props.class}
             action={() => {
+                if (props.debugMode) {
+                    console.info("EventBackground action starting ...");
+                }
                 callMxAction(props.action, true);
-                console.info("EventBackground action executed IN WIDGET");
+                if (props.debugMode) {
+                    console.info("EventBackground action finished");
+                }
             }}
         />
     );
