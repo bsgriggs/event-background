@@ -1,6 +1,8 @@
 ## Event Background
 A version of the Mendix Events widget that can execute actions when the browser tab is not active
 
+**Note: for PWA applications, the server worker will only run the event when the tab is inactive IF the delay is set to 0.**
+
 ![config](https://raw.githubusercontent.com/bsgriggs/event-background/refs/heads/media/config.png)
 
 ## Features
