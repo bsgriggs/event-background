@@ -1,24 +1,26 @@
-## EventBackground
-[Events widget but runs even if the tab isn't focused]
+## Event Background
+A version of the Mendix Events widget that can execute actions when the browser tab is not active
+
+
 
 ## Features
-[feature highlights]
+- Run an event when a component renders with an optional delay
+- A debug mode to be able to see when the events are running in the console
 
 ## Usage
-[step by step instructions]
-
-## Demo project
-[link to sandbox]
+1. Add the widget to a page
+2. Configure the amount of delay
+3. Configure the event to be executed
+4. Run the project
 
 ## Issues, suggestions and feature requests
-[link to GitHub issues]
 
 ## Development and contribution
 
-1. Install NPM package dependencies by using: `npm install`. If you use NPM v7.x.x, which can be checked by executing `npm -v`, execute: `npm install --legacy-peer-deps`.
-1. Run `npm start` to watch for code changes. On every change:
-    - the widget will be bundled;
-    - the bundle will be included in a `dist` folder in the root directory of the project;
-    - the bundle will be included in the `deployment` and `widgets` folder of the Mendix test project.
-
-[specify contribution]
+1. Clone the repository into a folder inside your test project directory - like `{project}/pluggableWidgets`
+2. Add `pluggableWidgets/` to your test project's .gitignore
+3. Install NPM package dependencies by using: `npm install`.
+4. Run `npm run dev` to watch for code changes. On every change:
+    - the widget will be bundled
+5. When changes are complete, run `npm run lint:fix ; npm run release` to bundle the widget
+    - the bundle will be included in a `dist` folder in the root directory of the project
