@@ -18,18 +18,22 @@ export function EventBackgroundComp({
     debugMode
 }: EventBackgroundCompProps): ReactElement {
     useEffect(() => {
-        const timeout = setTimeout(() => action(), delay);
-        if (debugMode) {
-            console.info(`Scheduling event "${name}" with delay ${delay / 1000} seconds`);
-        }
-
-        return () => {
+        if (delay !== 0) {
+            const timeout = setTimeout(() => action(), delay);
             if (debugMode) {
-                console.info(`Destroying event "${name}"`);
+                console.info(`Scheduling event "${name}" with delay ${delay / 1000} seconds`);
             }
 
-            clearTimeout(timeout);
-        };
+            return () => {
+                if (debugMode) {
+                    console.info(`Destroying event "${name}"`);
+                }
+
+                clearTimeout(timeout);
+            };
+        } else {
+            action();
+        }
     }, [action, delay, debugMode, name]);
 
     const resultStyle: CSSProperties | undefined = useMemo(

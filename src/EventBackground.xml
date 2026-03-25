@@ -27,6 +27,7 @@ Disable prior to committing!
                     <caption>On Load Action</caption>
                     <description>Event ran on render after the delay number of milliseconds.
 Use this - instead of the standard Events widget - if the event should execute even if the browser tab is inactive
+For PWA apps, the delay MUST be sent to 0. Service workers do not run background events through setTimeout().
                 </description>
                 </property>
             </propertyGroup>
