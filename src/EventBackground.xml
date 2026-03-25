@@ -6,6 +6,7 @@
     xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Event Background</name>
     <description>Events widget but runs even if the tab isn't focused</description>
+    <helpUrl>https://github.com/bsgriggs/event-background/blob/master/README.md</helpUrl>
     <icon />
     <properties>
         <propertyGroup caption="General">
