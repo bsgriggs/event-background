@@ -1,7 +1,7 @@
 ## Event Background
 A version of the Mendix Events widget that can execute actions when the browser tab is not active
 
-
+![config](https://raw.githubusercontent.com/bsgriggs/event-background/refs/heads/media/config.png)
 
 ## Features
 - Run an event when a component renders with an optional delay
